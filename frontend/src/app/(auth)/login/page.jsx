@@ -1,4 +1,5 @@
 "use client";
+import axiosClient from '@/utils/AxiosClient';
 import React, { useState } from "react";
 
 const Loginpage = () => {
@@ -6,8 +7,8 @@ const Loginpage = () => {
     name: "",
     email: "",
     password: "",
-    ac_type: "",
-  });
+    ac_type: ""
+  })
   const onChangeHandler = (e) => {
     setStates({ ...states, [e.target.name]: e.target.value });
   }
@@ -15,20 +16,19 @@ const Loginpage = () => {
   const onSubmitHandler = async(e) => {
     e.preventDefault();
     try {
-      const response = await axiosClient.post('/auth/register',states)
+      const response = await axiosClient.post('/auth/register', states)
       const data = await response.data
 
       console.log(data);
     } catch (error) {
       console.log(error.message);
-      
     }
   }
 
   return (
     <>
       <div className="min-h-[80vh] flex items-center justify-center">
-        <form onSubmit={onSubmitHandler}className="w-1/2 px-10 py-10 border">
+        <form onSubmit={onSubmitHandler} className="w-1/2 px-10 py-10 border">
           <div className="mb-3">
             <input
               type="text"
@@ -74,7 +74,9 @@ const Loginpage = () => {
           </div>
 
           <div className="mb-3">
-            <button className="w-full py-4 text-center text-lg bg-blue-600 rounded text-white">Login</button>
+            <button className="w-full py-4 text-center text-lg bg-blue-600 rounded text-white">
+              Login
+            </button>
           </div>
         </form>
       </div>
