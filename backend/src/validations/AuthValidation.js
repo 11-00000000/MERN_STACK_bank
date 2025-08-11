@@ -1,7 +1,7 @@
 const { body } = require("express-validator")
 
 class AuthValidation{
-    static loginUser=[ 
+    static loginuser=[ 
         body("email").notEmpty().withMessage("Email is Required").toLowerCase(),
         body("password").notEmpty().withMessage("Password is Required"),
       ]
@@ -14,4 +14,4 @@ class AuthValidation{
     ]
 }
 
-module.exports= AuthValidation
+module.exports = AuthValidation
