@@ -95,7 +95,7 @@ const RegisterPage = () => {
               type="submit"
               className="w-full py-4 text-center text-lg bg-blue-600 rounded text-white"
             >
-              Register
+              Login
             </button>
           </div>
         </Form>
