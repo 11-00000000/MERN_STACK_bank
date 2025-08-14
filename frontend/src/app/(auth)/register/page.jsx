@@ -6,9 +6,14 @@ import * as yup from "yup";
 import { toast } from "react-toastify";
 import CustomAuthButton from "@/components/reusable/CustomAuthButton";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useMainContext } from "@/context/MainContext";
 
 const RegisterPage = () => {
   const [loading, setLoading] = useState(false); // ✅ loading state
+const {fetchUserProfile} = useMainContext()
+  const router = useRouter()
+
 
   const initialValues = {
     name: "",
@@ -38,6 +43,9 @@ const RegisterPage = () => {
       toast.success(data.msg);
       //token
       localStorage.setItem("token", data.token)
+ fetchUserProfile()
+    router.push("/")
+
       helpers.resetForm();
     } catch (error) {
       toast.error(error.response.data.msg || error.message);

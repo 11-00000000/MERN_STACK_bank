@@ -6,9 +6,13 @@ import * as yup from "yup";
 import { toast } from "react-toastify";
 import CustomAuthButton from "@/components/reusable/CustomAuthButton";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useMainContext } from "@/context/MainContext";
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false); // ✅ loading state
+const {fetchUserProfile} = useMainContext()
+  const router=useRouter()
 
   const initialValues = {
     email: "",
@@ -32,6 +36,8 @@ const LoginPage = () => {
 
       //token
       localStorage.setItem("token", data.token)
+
+      router.push("/")
 
       helpers.resetForm();
     } catch (error) {
