@@ -5,6 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { toast } from "react-toastify";
 import CustomAuthButton from "@/components/reusable/CustomAuthButton";
+import Link from "next/link";
 
 const RegisterPage = () => {
   const [loading, setLoading] = useState(false); // ✅ loading state
@@ -30,10 +31,16 @@ const RegisterPage = () => {
     try {
       setLoading(true); // ✅ start loading
       const response = await axiosClient.post("/auth/register", values);
-      toast.success(response.data?.msg || "Registration successful");
+      const data = await response.data;
+
+      // console.log(data);
+      
+      toast.success(data.msg);
+      //token
+      localStorage.setItem("token", data.token)
       helpers.resetForm();
     } catch (error) {
-      toast.error(error.response?.data?.msg || error.message);
+      toast.error(error.response.data.msg || error.message);
     } finally {
       setLoading(false); // ✅ stop loading
     }
@@ -121,6 +128,14 @@ const RegisterPage = () => {
                 type="submit"
               />
             </div>
+            <div className="mb-3">
+              <p className="text-end font-medium">
+                Already Have An Account ?{" "}
+                <Link href={"/login"} className="text-red-600 ">
+                  Login
+                </Link>{" "}
+              </p>
+            </div>
           </Form>
         </Formik>
       </div>
@@ -128,4 +143,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default RegisterPage;
