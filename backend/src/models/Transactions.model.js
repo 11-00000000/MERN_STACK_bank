@@ -25,6 +25,7 @@ const Schema = new mongoose.Schema({
         enum:['credit','debit','fix_deposit'],
         required:true
     },
+    //razor pay add
     razorpayPaymentId:{
         type:String,
         default:''

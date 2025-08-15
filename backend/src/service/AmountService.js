@@ -2,17 +2,18 @@ const { AccountModel } = require("../models/Account.model");
 const { TransactionModel } = require("../models/Transactions.model");
 const { UserModel } = require("../models/User.model");
 const ApiError = require("../utils/ApiError");
-const { NewRazorpay } = require("../utils/Razarpay");
+const {NewRazorpay}  = require("../utils/Razorpay");
 const crypto = require("crypto")
 class AmountService{
 
     static async addMoney(body,user){
- 
+
+        console.log(body,user)
 
       const transaction=  await TransactionModel.create({
             account:body.account_no,
             user:user,
-            amount:parseInt(body.amount),
+            amount: parseInt(body.amount),
             type:'credit'
         })
 
