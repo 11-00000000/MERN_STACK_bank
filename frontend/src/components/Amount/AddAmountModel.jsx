@@ -12,7 +12,7 @@ import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { SiRazorpay } from "react-icons/si";
 import { toast } from 'react-toastify';
 import * as yup from 'yup'
-
+import { FaPlusSquare } from "react-icons/fa";
 export default function AddAmountModel({id}) {
 
   const {user} = useMainContext()
@@ -65,10 +65,6 @@ export default function AddAmountModel({id}) {
       },
   };
 
-
- 
-
-
   const paymentObject = new window.Razorpay(options);
   paymentObject.open();
 
@@ -94,11 +90,11 @@ export default function AddAmountModel({id}) {
 
   return (
     <> 
-        <button type="button"
-          onClick={openModal} className='text-3xl text-rose-700 cursor-pointer'> <CiSquarePlus/> </button>
-        
+<div>
+  <button type="button"
+     onClick={openModal}className='text-3xl text-blue-800 cursor-pointer '><FaPlusSquare /></button>
  
-
+</div>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
