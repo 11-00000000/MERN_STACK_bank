@@ -80,11 +80,36 @@ class AuthService {
         const userd = await UserModel.findById(user)
         .select("name email ac_type createdAt -_id")
 
+
+        const profile_obj = {}
+
+
+        const account = await AccountModel.findOne({ user })
+        if(!account){
+            const ac = await AccountModel.create({
+                user,
+                amount:0
+            })
+            await TransactionModel.create({
+                account:ac._id,
+                amount:0,
+                type:'credit',
+                isSuccess:true,
+                remark:'Account Opening !'
+            })
+
+            profile_obj['account_no'] = ac._id
+            profile_obj['amount'] = ac.amount
+        }
+            profile_obj['account_no'] = account._id
+            profile_obj['amount'] = account.amount
+
+
         if(!userd){
             throw new ApiError(404,"Profile not found")
 
         }
-        return userd
+        return {...userd.toObject(),...profile_obj}
     }
 
 
