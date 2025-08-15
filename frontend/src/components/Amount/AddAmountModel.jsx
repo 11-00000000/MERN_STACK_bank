@@ -12,7 +12,7 @@ import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import { SiRazorpay } from "react-icons/si";
 import { toast } from 'react-toastify';
 import * as yup from 'yup'
-import { FaPlusSquare } from "react-icons/fa";
+import { FaSquarePlus } from "react-icons/fa6";
 export default function AddAmountModel({id}) {
 
   const {user} = useMainContext()
@@ -92,7 +92,7 @@ export default function AddAmountModel({id}) {
     <> 
 <div>
   <button type="button"
-     onClick={openModal}className='text-3xl text-blue-800 cursor-pointer '><FaPlusSquare /></button>
+     onClick={openModal}className='text-3xl text-blue-800 cursor-pointer '><FaSquarePlus /></button>
  
 </div>
       <Transition appear show={isOpen} as={Fragment}>
@@ -127,7 +127,7 @@ export default function AddAmountModel({id}) {
                   >
                   <span>  Add Payment</span>
 
-                  <button onClick={closeModal} className='text-2xl text-black p-2 bg-rose-100 rounded-full cursor-pointer'>
+                  <button onClick={closeModal} className='text-2xl text-black p-2 bg-blue-200 rounded-full cursor-pointer'>
                     <IoClose/>
                   </button>
 
@@ -147,7 +147,7 @@ export default function AddAmountModel({id}) {
                          type="text" className='w-full py-2 outline-none border-none  rounded' placeholder='Enter Amount (in inr) '/>
                           </div>
                           <div className="mb-3 flex w-full justify-end">
-                            <button disabled={values.amount<1 ||loading} className="px-5 flex items-center gap-x-2 w-full bg-rose-600 hover:bg-rose-700 text-white py-2 disabled:bg-rose-500 justify-center rounded"><span>Pay</span> <SiRazorpay/> </button>
+                            <button disabled={values.amount<1 ||loading} className="px-5 flex items-center gap-x-2 w-full bg-blue-600 hover:bg-blue-800 text-white py-2 disabled:bg--300 justify-center rounded"><span>Pay</span> <SiRazorpay/> </button>
                           </div>
                         </form>
 
