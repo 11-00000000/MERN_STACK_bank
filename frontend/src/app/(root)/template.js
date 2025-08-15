@@ -60,7 +60,7 @@ const CustomMenu = ({link,text,Icon})=>{
       <CustomMenu link={'/profile'} text={'Profile'} Icon={GiFalloutShelter} />
     <MenuItem> Calendar </MenuItem>
   </Menu>
-</Sidebar>;
+</Sidebar>
 
 <main className='px-1 md:px-3 w-full'>
      {children}

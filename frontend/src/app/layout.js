@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 const PoppinsFont = Poppins({
-  variable: '--font-poppins',
+  variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ['400'],
+  weight: ["400"],
 });
 
 export const metadata = {
@@ -26,7 +26,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${PoppinsFont.variable}`} suppressHydrationWarning>
+      <body className={`  ${PoppinsFont.variable}   `} suppressHydrationWarning>
         <MainLayout>
           {children}
         </MainLayout>
