@@ -1,7 +1,7 @@
 "use client";
-import { BsCoin } from "react-icons/bs";
+import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import { RiCoinsLine } from "react-icons/ri";
-import { IoCardSharp } from "react-icons/io5";
+import { BsCreditCard2FrontFill } from "react-icons/bs";
 import Link from "next/link";
 import HeaderName from "@/components/HeaderName";
 import { useMainContext } from "@/context/MainContext";
@@ -15,7 +15,7 @@ const HomePage = () => {
    const dashboard_data = [
     {
        title:"Amount",
-      "Icon":< BsCoin className="text-6xl text-yellow-500" />,
+      "Icon":<RiMoneyRupeeCircleFill className="text-6xl text-yellow-500" />,
       "value":`₹${user.amount}`
       // link:'/amount'
     },
@@ -26,7 +26,7 @@ const HomePage = () => {
     },
     {
        title:"ATM Card",
-      "Icon":<IoCardSharp  className="text-6xl text-yellow-500" />,
+      "Icon":<BsCreditCard2FrontFill   className="text-6xl text-yellow-500" />,
       "value":`₹${10}`
     }
    ]

@@ -17,7 +17,7 @@ const TableCard = ({id,data:Datas}) => {
         <td className="px-6 py-4  ">
             {Datas.amount}
 </td>
-        <td className="px-6 py-4  ">
+        <td className="px-6 py-4 ">
           {moment(Datas.createdAt).format('LL')}
         </td>
         <td className={`px-6 py-4 hidden lg:block ${Datas.isSuccess?'bg-green-100  border-gray-100 ':'bg-red-100  border-red-100 '}`}>
