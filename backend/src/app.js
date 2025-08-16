@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 app.use((req, res, next) => {
   next(new ApiError(404, "Not Found"));
 });
+console.log(process.env.FRONTEND_URI)
 
 app.use(NotFoundError);
 
