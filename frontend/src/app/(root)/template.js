@@ -43,7 +43,7 @@ const CustomMenu = ({link,text,Icon})=>{
   return <>
   <MenuItem
   style={{
-    background:pathname === link?'#c60036':'#ffff',
+    background:pathname === link?'#000ac6ff':'#ffff',
     color:pathname === link?'white':'black',
     borderRadius:pathname === link?"10px":'0px'
   }}
