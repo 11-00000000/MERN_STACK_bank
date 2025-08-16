@@ -1,26 +1,32 @@
 "use client";
-import { RiMoneyRupeeCircleFill } from "react-icons/ri";
-import { BsBagCheckFill } from "react-icons/bs";
-import { BsCreditCard2FrontFill } from "react-icons/bs";
+import { BsCoin } from "react-icons/bs";
+import { RiCoinsLine } from "react-icons/ri";
+import { IoCardSharp } from "react-icons/io5";
+import Link from "next/link";
+import HeaderName from "@/components/HeaderName";
+import { useMainContext } from "@/context/MainContext";
+
 
 // HomePage component
 const HomePage = () => {
 
+  const {user}= useMainContext()
+
    const dashboard_data = [
     {
        title:"Amount",
-      "Icon":<RiMoneyRupeeCircleFill className="text-6xl text-yellow-500" />,
-      "value":`₹${0}`
+      "Icon":< BsCoin className="text-6xl text-yellow-500" />,
+      "value":`₹${user.amount}`
       // link:'/amount'
     },
     {
        title:"FD Amount",
-      "Icon":<BsBagCheckFill  className="text-6xl text-yellow-500" />,
+      "Icon":<RiCoinsLine  className="text-6xl text-yellow-500" />,
       "value":`₹${10}`
     },
     {
        title:"ATM Card",
-      "Icon":<BsCreditCard2FrontFill  className="text-6xl text-yellow-500" />,
+      "Icon":<IoCardSharp  className="text-6xl text-yellow-500" />,
       "value":`₹${10}`
     }
    ]

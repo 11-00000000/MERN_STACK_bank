@@ -37,6 +37,7 @@ const {fetchUserProfile} = useMainContext()
       //token
       localStorage.setItem("token", data.token)
 
+      await fetchUserProfile();
       router.push("/")
 
       helpers.resetForm();
