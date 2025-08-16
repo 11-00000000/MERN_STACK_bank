@@ -1,7 +1,7 @@
 "use client";
 import Loader from '@/components/Loader';
 import { useMainContext } from '@/context/MainContext';
-import { setIsToggle ,SidebarSlicePath} from '@/redux/slice/sidebarSlice';
+import { setIsToggle, SidebarSlicePath } from '@/redux/slice/sidebarSlice';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
@@ -15,12 +15,14 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { IoCardSharp } from "react-icons/io5";
 
 const RootTemplate = ({children}) => {
-   const {user} = useMainContext()
+
+  const {user} = useMainContext()
   const [loading,setLoading] = useState(true)
 
 const router = useRouter()
 const isToggle = useSelector(SidebarSlicePath)
 const dispatch = useDispatch()
+  
 useEffect(()=>{
   if(!user){
     router.push("/login")
@@ -29,17 +31,19 @@ useEffect(()=>{
     setLoading(false)
   }
 },[user])
+
 if(loading){
   return <div className='min-h-screen flex items-center justify-center'>
     <Loader/>
   </div>
 }
+
 const CustomMenu = ({link,text,Icon})=>{
   const pathname= usePathname()
   return <>
-   <MenuItem
+  <MenuItem
   style={{
-    background:pathname === link?'#0017c6ff':'#ffff',
+    background:pathname === link?'#000ac6ff':'#ffff',
     color:pathname === link?'white':'black',
     borderRadius:pathname === link?"10px":'0px'
   }}
@@ -47,27 +51,25 @@ const CustomMenu = ({link,text,Icon})=>{
   component={<Link href={link} />}> {text} </MenuItem>
   </>
 }
+
   return (
-    <>
- <section className="flex item-start">
-    <Sidebar breakPoint='lg'toggled={isToggle} onBackdropClick={()=>dispatch(setIsToggle())}>
-   <Menu className='!bg-white !min-h-screen lg:!min-h-[90vh] px-3 py-10'>
+    <>  
+        <section className="flex item-start">
+        <Sidebar breakPoint='lg' toggled={isToggle} onBackdropClick={()=>dispatch(setIsToggle())}>
+  <Menu className='!bg-white !min-h-screen lg:!min-h-[90vh] px-3 py-10'>
       <CustomMenu link={'/'} text={'Home'} Icon={MdDashboard} />
-      <CustomMenu link={'/amount'} text={'Amount'} Icon={GrCurrency} />
+      <CustomMenu link={'/amount'} text={'Account'} Icon={GrCurrency} />
       <CustomMenu link={'/fd-amount'} text={'Fix Deposit'} Icon={GiReceiveMoney} />
       <CustomMenu link={'/transactions'} text={'Transactions'} Icon={PiNewspaperClipping} />
       <CustomMenu link={'/atm-cards'} text={'ATM Cards'} Icon={IoCardSharp} />
       <CustomMenu link={'/profile'} text={'Profile'} Icon={GiFalloutShelter} />
-    <MenuItem> Calendar </MenuItem>
+  
   </Menu>
-</Sidebar>
-
+</Sidebar> 
 <main className='px-1 md:px-3 w-full'>
      {children}
-
-</main>
-  </section>
-
+  </main>
+        </section>
     </>
   )
 }
