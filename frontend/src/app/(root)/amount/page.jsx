@@ -20,7 +20,6 @@ const AmountPage = () => {
           <div className="flex flex-col">
             <h1 className="text-2xl font-bold">Add Amount</h1>
             <p className="text-lg text-zinc-500 font-medium">
-              {" "}
               {user.account_no}
             </p>
             <p className="text-3xl font-semibold">

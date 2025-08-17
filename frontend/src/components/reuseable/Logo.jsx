@@ -1,14 +1,9 @@
-import Link from 'next/link'
-import React from 'react'
-
+// Logo.jsx
+import React from 'react';
+import Link from 'next/link';
 
 const Logo = () => {
-  return (
-    <>
-    <Link href={'/'}> 
-    <img src="/logo.svg" className='w-[50%] md:w-[20%] lg:w-[10%]  ' alt="" /> </Link>
-    </>
-  )
-}
+  return <Link href="/">CBI</Link>;
+};
 
-export default Logo
+export default Logo;

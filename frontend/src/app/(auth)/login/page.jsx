@@ -4,7 +4,7 @@ import React, { useState } from "react"; // ✅ Import useState
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { toast } from "react-toastify";
-import CustomAuthButton from "@/components/reusable/CustomAuthButton";
+import CustomAuthButton from "@/components/reuseable/CustomAuthButton";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMainContext } from "@/context/MainContext";
