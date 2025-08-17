@@ -76,7 +76,7 @@ const ClaimFDModel = ({id,methods:{isUpdate,setIsUpdate}}) => {
     
   return (
     <>
-         <button onClick={openModal} className="px-4 py-2 rounded border text-rose-600 border-rose-600 cursor-pointer ">Claim</button>
+         <button onClick={openModal} className="px-4 py-2 rounded border text-blue-600 border-blue-600 cursor-pointer ">Claim</button>
 
          <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -109,7 +109,7 @@ const ClaimFDModel = ({id,methods:{isUpdate,setIsUpdate}}) => {
                     className="text-lg font-medium leading-6 flex items-center justify-between text-gray-900"
                   >
                  <h3 className='text-2xl text-rose-500'>  {data?.apply_for}</h3>
-    <button onClick={closeModal} className='text-2xl text-rose-700 cursor-pointer outline-none bg-rose-100 rounded-full p-3'>    
+    <button onClick={closeModal} className='text-2xl text-blue-700 cursor-pointer outline-none bg-blue-100 rounded-full p-3'>    
     <IoClose/>
     </button>
 
@@ -145,7 +145,7 @@ const ClaimFDModel = ({id,methods:{isUpdate,setIsUpdate}}) => {
                         </table>
 
                        <div className="py-5">
-                       <button onClick={claimedFD} disabled={loading} className='w-full rounded py-2 flex justify-center items-center gap-x-2 bg-rose-600 disabled:bg-rose-800 text-white capitalize text-xl'>
+                       <button onClick={claimedFD} disabled={loading} className='w-full rounded py-2 flex justify-center items-center gap-x-2 bg-blue-600 disabled:bg-blue-800 text-white capitalize text-xl cursor-pointer hover:bg-blue-700 hover:text-white'>
                             <span>Claim</span>
                             <TbCoins className='text-2xl' />
                         </button>

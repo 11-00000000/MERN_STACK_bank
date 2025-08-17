@@ -23,7 +23,7 @@ const HomePage=()=>{
     {
       title:"FD Amount",
       "Icon":<RiCoinsLine className="text-6xl text-rose-700" /> ,
-      "value":`₹${5}`,
+      "value":`₹${user.fd_amount}`,
       link:"/fd-amount"
     },
     {

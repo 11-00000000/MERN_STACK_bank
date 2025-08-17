@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 import CustomAuthButton from '@/components/reuseable/CustomAuthButton';
 import { useMainContext } from '@/context/MainContext';
 import { axiosClient } from '@/utils/AxiosClient';
@@ -9,8 +9,7 @@ import { LiaPlusSolid } from "react-icons/lia";
 import { toast } from 'react-toastify';
 import { RiCloseLargeLine } from "react-icons/ri";
 import * as yup from 'yup'
-
-export default function AddNewFDModel({isUpdate,setIsUpdate}) {
+export default function AddNewFdModel({isUpdate,setIsUpdate}) {
   let [isOpen, setIsOpen] = useState(false)
   const { user,fetchUserProfile} = useMainContext()
   const [loading,setLoading] = useState(false)
@@ -133,7 +132,7 @@ export default function AddNewFDModel({isUpdate,setIsUpdate}) {
          // user && user.account_no && user.account_no.length>0 ? <>
           <option value="">Select</option>
         //  { user.account_no.map((cur,i)=>{
-                  //   return <option key={i} className='' value={cur._id}>{${cur._id} - ₹${cur.amount}}</option>
+                  //   return <option key={i} className='' value={cur._id}>{`${cur._id} - ₹${cur.amount}`}</option>
                   // })}
                   // </>:
                   // <option value="">No Account Have</option>
@@ -300,7 +299,7 @@ export default function AddNewFDModel({isUpdate,setIsUpdate}) {
 //                   user && user.account_no && user.account_no.length>0 ? <>
 //                   <option value="">Select</option>
 //                    { user.account_no.map((cur,i)=>{
-//                     return <option key={i} className='' value={cur._id}>{${cur._id} - ₹${cur.amount}}</option>
+//                     return <option key={i} className='' value={cur._id}>{`${cur._id} - ₹${cur.amount}`}</option>
 //                   })}
 //                   </>:
 //                   <option value="">No Account Have</option>
