@@ -1,4 +1,4 @@
- "use client";
+"use client";
 import CustomAuthButton from '@/components/reuseable/CustomAuthButton';
 import { useMainContext } from '@/context/MainContext';
 import { axiosClient } from '@/utils/AxiosClient';
@@ -133,7 +133,7 @@ export default function AddNewFdModel({isUpdate,setIsUpdate}) {
          // user && user.account_no && user.account_no.length>0 ? <>
           <option value="">Select</option>
         //  { user.account_no.map((cur,i)=>{
-                  //   return <option key={i} className='' value={cur._id}>{`${cur._id} - ₹${cur.amount}`}</option>
+                  //   return <option key={i} className='' value={cur._id}>{${cur._id} - ₹${cur.amount}}</option>
                   // })}
                   // </>:
                   // <option value="">No Account Have</option>
