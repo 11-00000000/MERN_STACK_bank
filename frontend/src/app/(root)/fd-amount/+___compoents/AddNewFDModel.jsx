@@ -12,7 +12,7 @@ import * as yup from 'yup'
 export default function AddNewFdModel({isUpdate,setIsUpdate}) {
   let [isOpen, setIsOpen] = useState(false)
 
-  const { user} = useMainContext()
+  const { user,fetchUserProfile} = useMainContext()
   const [loading,setLoading] = useState(false)
   const initialStates = {
     amount:0,
@@ -27,9 +27,25 @@ export default function AddNewFdModel({isUpdate,setIsUpdate}) {
 
  const onSubmitHandler =async (values,{resetForm})=>{
     try {
+        setLoading(true)
+  // req
+      const response = await axiosClient.post('/fd/add-new',values,{
+        headers:{
+          'Authorization':'Bearer '+localStorage.getItem("token")
+        }
+      })
+ const data = await response.data
+// console.log(data);
+
+   await fetchUserProfile()
+      toast.success(data.msg)
+      closeModal()
      } catch (error) {
       toast.error(error.response.data.msg || error.message)
-      }
+      }finally{
+      setLoading(false)
+      setIsUpdate(!isUpdate)
+    }
       }
 
   function closeModal() {
@@ -82,10 +98,13 @@ export default function AddNewFdModel({isUpdate,setIsUpdate}) {
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
+                    as="div"
+                    className="text-lg flex items-center justify-between font-medium leading-6 text-gray-900"
                   >
-                   <p>Apply New Fix Deposit</p>
+                    <p>Apply New Fix Deposit</p>
+                    <button  onClick={closeModal} type='button' className='text-xl p-2 bg-blue-100 rounded-full text-blue-800 cursor-pointer'>
+                      <RiCloseLargeLine/>
+                    </button>
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
