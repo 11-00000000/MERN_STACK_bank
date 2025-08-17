@@ -1,8 +1,8 @@
 const express = require("express")
 const AuthMiddleware = require("../../middleware/AuthMiddleware")
-const FixDepositValidation = require("../../validations/FixDepositValidation")
+const FixDepositValidation = require("../../validations/FDvalidation")
 const ValidationMiddleware = require("../../middleware/ValidationMiddleware")
-const FixDepositController = require("../../controller/FixDepositController")
+const FixDepositController = require("../../controller/FDController")
 const router = express.Router()
 
 router.route('/add-new')

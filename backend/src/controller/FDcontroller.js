@@ -1,4 +1,4 @@
-const FixDepositService = require("../service/FixDepositService")
+//const FixDepositService = require("../service/FixDepositService")
 class FixDepositController{
 
     static AddNewFD = async(req,res)=>{
