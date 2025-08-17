@@ -17,7 +17,7 @@ const HomePage=()=>{
     {
       title:"Amount",
       "Icon":<BsCoin className="text-6xl text-yellow-500" />,
-      "value":`₹${user?.ammount ?? 0}`,
+"value":`₹${Array.isArray(user.account_no) ? user.account_no.map((cur)=>cur.amount).reduce((pre,cur)=>pre+cur, 0) : 0}`,
       link:'/amount'
     },
     {

@@ -138,13 +138,12 @@ export default function AddNewFdModel({isUpdate,setIsUpdate}) {
                 <label htmlFor="account">Account</label>
                 <Field  as="select" name='account' id='account' className='w-full bg-transparent border border-rose-500 rounded-md py-3 px-4 outline-none'   >
                  {
-                  Array.isArray(user?.account_no) && user.account_no.length>0 ? (
-                  <>
+                  user && user.account_no && user.account_no.length>0 ? <>
                   <option value="">Select</option>
                    { user.account_no.map((cur,i)=>{
                     return <option key={i} className='' value={cur._id}>{`${cur._id} - ₹${cur.amount}`}</option>
                   })}
-                  </>) :
+                  </>:
                   <option value="">No Account Have</option>
                  }
                 </Field>

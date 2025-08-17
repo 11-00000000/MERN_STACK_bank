@@ -1,7 +1,7 @@
 "use client";
 import HeaderName from '@/components/HeaderName'
 import React, { Suspense, useEffect, useState } from 'react'
-import AddNewFDModel from './+___compoents/AddNewFDModel'
+import AddNewFdModel from './+___compoents/AddNewFdModel'
 import FDCard from './+___compoents/FDCard'
 import { axiosClient } from '@/utils/AxiosClient'
 import CustomLoader from '@/components/reuseable/CustomLoader'
@@ -48,7 +48,7 @@ const FDPage = () => {
 
             <div className="py-10 grid grid-cols-1  items-start gap-x-4 gap-y-3 lg:grid-cols-2 xl:grid-cols-3">
 
-            <AddNewFDModel isUpdate={isUpdate} setIsUpdate={setIsUpdate} />   
+            <AddNewFdModel isUpdate={isUpdate} setIsUpdate={setIsUpdate} />   
             <Suspense fallback={<CustomLoader/>}>
             {
                  deposits.length>0&&           deposits.map((cur,i)=>{

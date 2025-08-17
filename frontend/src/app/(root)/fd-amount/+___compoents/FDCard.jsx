@@ -1,48 +1,32 @@
 "use client";
+import Link from 'next/link';
+import React, { useState } from 'react'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
+import ClaimFDModel from './ClaimFDModel';
+const FDCard = ({data,isUpdate,setIsUpdate}) => {
+    const [isShow,setIsShow] = useState(false)
+    
+    const amount = `${data.amount}`
 
-import React, { Suspense, useEffect, useState } from "react";
-import HeaderName from "@/components/HeaderName";
-import AddNewFDModel from "./AddNewFDModel";
-import FDCard from "./FDCard";
-import { axiosClient } from "@/utils/AxiosClient";
-import CustomLoader from "@/components/reuseable/CustomLoader";
-
-const FDPage = () => {
-  const [fdList, setFdList] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const getAllFds = async () => {
-    try {
-      setLoading(true);
-      const res = await axiosClient.get("/fd");
-      setFdList(res?.data?.fds || []);
-    } catch (err) {
-      console.error("Error fetching FDs", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getAllFds();
-  }, []);
 
   return (
-    <div className="py-6 space-y-6">
-      <HeaderName />
-      <AddNewFDModel refresh={getAllFds} />
+    <div className='py-4 px-2 w-full shadow border rounded flex flex-col'>
+            <h2 className='text-3xl font-medium '>{data?.apply_for}</h2>
+             <div className='text-2xl text-start w-full font-bold text-zinc-950 flex items-center gap-x-2 justify-start'> <span>&#8377; {isShow ? amount: ``.padStart(amount.length,'x')}/-</span> <button
+                onClick={(e)=>{
+                    e.preventDefault()
+                    e.stopPropagation()
+                    setIsShow(!isShow)
+                }}
+             type='button' className='outline-none cursor-pointer text-rose-700'> { !isShow? <FaEye/>:<FaEyeSlash/>} </button>  </div>         
 
-      {loading ? (
-        <CustomLoader />
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {fdList.map((fd, i) => (
-            <FDCard key={i} data={fd} />
-          ))}
-        </div>
-      )}
+                <div className="flex justify-end items-center">
+                   <ClaimFDModel methods={{isUpdate,setIsUpdate}} id={data?._id} />
+                    </div>
+
+
     </div>
-  );
-};
+  )
+}
 
-export default FDPage;
+export default FDCard
