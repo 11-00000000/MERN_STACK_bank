@@ -11,7 +11,6 @@ import { RiCloseLargeLine } from "react-icons/ri";
 import * as yup from 'yup'
 export default function AddNewFdModel({isUpdate,setIsUpdate}) {
   let [isOpen, setIsOpen] = useState(false)
-
   const { user,fetchUserProfile} = useMainContext()
   const [loading,setLoading] = useState(false)
   const initialStates = {
