@@ -10,6 +10,6 @@ router.post('/add-money',AuthMiddleware,AmountValidation.addMoney,ValidationMidd
 
 router.post('/add-account',AuthMiddleware,AmountValidation.addAccount,ValidationMiddleware,AmountController.addNewAccount)
 
-router.post('/payment/:txn_id',AuthMiddleware,AmountController.verifyPayment)
+router.post('/payment/:txn_id',AmountController.verifyPayment)
 router.get('/transactions',AuthMiddleware,AmountController.getAllTransactions)
 module.exports = router
