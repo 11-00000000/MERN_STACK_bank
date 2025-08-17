@@ -42,14 +42,14 @@ class AmountService{
 
 
         const expect = crypto
-        .createHmac("sha256", process.env.RAZORPAY_KEY_SCREATE || "")
+        .createHmac("sha256", process.env.RAZOR_KEY_SECRET || "")
         .update(body_data)
         .digest("hex");
 
         const isValid = expect === razorpay_signature;
         if(!isValid){
             return {
-                url:`${process.env.FRONTEND_URI}/transactions?error=Transaction Failed`
+                url:`http://localhost:3000/transactions?error=Transaction Failed`
             }
         }
 
@@ -65,14 +65,14 @@ class AmountService{
         })
 
 
-     const account=    await AccountModel.findById(transaction.account)
+     const account =    await AccountModel.findById(transaction.account)
 
         await AccountModel.findByIdAndUpdate(account._id,{
             amount:account.amount+transaction.amount
         })
 
         return {
-            url:`${process.env.FRONTEND_URI}/transactions?success=Transaction Success`
+            url:`http://localhost:3000/transactions?success=Transaction Success`
         }
  
     }
