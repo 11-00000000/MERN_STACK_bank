@@ -49,10 +49,10 @@ export default function AddAmountModel({ id }) {
         key: `rzp_test_R56F8m31sAP6ls`, // Enter the Key ID generated from the Dashboard
         amount: (values.amount * 100).toString(),
         currency: "INR",
-        name: "CBI Bank",
+        name: "FinX Bank",
         description: "Add Money Transaction",
         callback_url: razorpayCallBackUrl(data.txn_id),
-        image: "/logo.svg",
+        image: "https://razorpay.com/docs/build/browser/static/razorpay-docs-light.009264f2.svg",
         // image: { logo },
         order_id: data.order_id,
 
