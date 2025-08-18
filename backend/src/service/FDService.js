@@ -11,18 +11,18 @@ class FixDepositService{
 
     static  async  AddNewFD(body,user){
         
-        // verify karna hain account exist karta hai ya nhi 
+        // verify to check whether the account exists or not
 
         const existAccount =await AccountModel.findById(body.account)
         if(!existAccount){
             throw new ApiError(404,"Account Not Found")
         }
-        //for all fd amount na to jayda ho na hi barabar ho
+        //for all fd amount should not be greater than or equal to account balance
         if(parseInt(body.amount) >= existAccount.amount ){
             throw new ApiError(400,"Insufficient Balanace Please Add Money ")
 
         }
-        //for current account amount limit se kam or uske barabar nhi hona chaiye 
+        //for current account amount limit should not be less than or equal to
         if(existAccount.ac_type === 'current'){
             if(existAccount.amount <= Account_LIMIT.current){
                 throw new ApiError(400,"Insufficient Balanace ")
@@ -51,7 +51,7 @@ class FixDepositService{
             remark:`Fund Deposit ₹${body.amount}`
         })
 
-        // amount katna hain
+        // update account balance
         await AccountModel.findByIdAndUpdate(existAccount._id,{
             amount:existAccount.amount-parseInt(body.amount)
         })
@@ -83,7 +83,7 @@ class FixDepositService{
             throw new ApiError(404,"FD Not Found")
         }
 
-        // interest rate nikalna per day ka 
+        // interest rate per day
 
         const interest_amount_per_day = Number(foundFD.amount*(0.1/100))
 
@@ -108,15 +108,15 @@ const totalamount = interest_amount_per_day*kitne_din
             throw new ApiError(404,"FD Not Found")
         }
 
-        // interest rate nikalna per day ka 
+        // interest rate per day
 
         const interest_amount_per_day = Number(foundFD.amount*(0.1/100))
 
         // Calculate number of days since deposit
 const currentDate = new Date();
 const depositDate = new Date(foundFD.date);
-const kitne_din = Math.floor((currentDate - depositDate) / (1000 * 60 * 60 * 24));
-const totalamount = interest_amount_per_day*kitne_din
+const number_of_days = Math.floor((currentDate - depositDate) / (1000 * 60 * 60 * 24));
+const totalamount = interest_amount_per_day*number_of_days
 
 const totalClaimAmount = foundFD.amount + totalamount
 
