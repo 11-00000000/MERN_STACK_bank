@@ -4,6 +4,7 @@ const bcryptjs = require("bcryptjs")
 const JWTService = require("../utils/JwtService")
 const { AccountModel } = require("../models/Account.model")
 const { TransactionModel } = require("../models/Transactions.model")
+const { FixDepositModel } = require("../models/FD.model")
 
 
 
@@ -104,6 +105,23 @@ class AuthService {
             profile_obj['account_no'] = account._id
             profile_obj['amount'] = account.amount
 
+// Fix Deposits
+
+    const fixDeposits=  await FixDepositModel.find({user,isClaimed:false})
+
+      if(fixDeposits.length>0){
+
+     const fd_amount= await  Promise.resolve(fixDeposits.map((cur,i)=>{
+            return cur.amount
+      }).reduce((pre,cur,i)=>{
+        return pre+cur
+      }))
+
+      
+      profile_obj['fd_amount'] = fd_amount
+
+
+      }
 
         if(!userd){
             throw new ApiError(404,"Profile not found")
