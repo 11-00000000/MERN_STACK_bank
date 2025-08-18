@@ -1,12 +1,12 @@
 "use client";
-// import Link from 'next/link';
+import Link from 'next/link';
 import React, { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 import ClaimFDModel from './ClaimFDModel';
 const FDCard = ({data,isUpdate,setIsUpdate}) => {
     const [isShow,setIsShow] = useState(false)
     
-    const amount = `${500}`
+    const amount = `${data.amount}`
 
 
   return (
