@@ -18,7 +18,6 @@ const AtmCards = () => {
   <div className="col-span-1 flex justify-end">
         <AddNewCardDialog/>
       </div>
-
         </div>
 
     
