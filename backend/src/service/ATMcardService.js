@@ -91,7 +91,7 @@ class ATMCardService{
 
 
         // check account limit
-          //for current account amount limit se kam or uske barabar nhi hona chaiye 
+          //for current account amount should not be less than or equal to limit
                if(account.ac_type === 'current'){
                    if(account.amount <= Account_LIMIT.current){
                     await TransactionModel.create({
@@ -120,7 +120,7 @@ class ATMCardService{
       
         }
 
-        // atm card ki limit
+        // atm card limit
 
         switch(atm_details.card_type){
             case 'basic':
