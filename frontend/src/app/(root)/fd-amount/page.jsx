@@ -7,10 +7,12 @@ import { axiosClient } from '@/utils/AxiosClient';
 import CustomLoader from '@/components/reuseable/CustomLoader';
 import { toast } from 'react-toastify';
 
+
 const FDPage = () => {
   const [deposits, setDeposits] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isUpdate, setIsUpdate] = useState(false);
+  
 
   const fetchAllDeposits = async () => {
     try {
