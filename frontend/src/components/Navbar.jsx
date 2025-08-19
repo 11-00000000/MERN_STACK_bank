@@ -24,7 +24,7 @@ const Navbar = () => {
           </button>
           <Logo />
         </div>
-        <ul className="flex items-center justify-center gap-x-2">
+        <ul className="flex items-center justify-center gap-x-2 cursor-pointer">
           <li><Link href="/">Home</Link></li>
           <li><Link href="/about">About</Link></li>
           {user ? (

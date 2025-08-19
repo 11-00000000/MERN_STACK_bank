@@ -1,11 +1,8 @@
 "use client";
 import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
-//import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
-import { RiExpandUpDownLine as ChevronUpDownIcon } from "react-icons/ri";
-import { FaCheck as CheckIcon } from "react-icons/fa6";
-import { useMainContext } from '@/context/MainContext';
- 
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+
 const people = [
   { name: 'Wade Cooper' },
   { name: 'Arlene Mccoy' },
@@ -14,9 +11,9 @@ const people = [
   { name: 'Tanya Fox' },
   { name: 'Hellen Schmidt' },
 ]
-
 export default function SelectCard() {
   const [selected, setSelected] = useState(people[0])
+
 
   return (
     <div className="fixed top-16 w-72">

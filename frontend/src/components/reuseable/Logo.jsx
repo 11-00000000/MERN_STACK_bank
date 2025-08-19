@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 
 const Logo = () => {
-  return <Link href="/">CBI</Link>;
+  return <Link href="/">FinCore</Link>;
 };
 
 export default Logo;
