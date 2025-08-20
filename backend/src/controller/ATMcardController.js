@@ -1,4 +1,4 @@
-const ATMCardService = require("../service/ATMCardService")
+const ATMCardService = require("../service/ATMcardService")
 
 class ATMCardController{
     static addNewCard =async (req,res)=>{
