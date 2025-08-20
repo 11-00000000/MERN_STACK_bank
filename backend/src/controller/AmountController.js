@@ -3,7 +3,6 @@ const AmountService = require("../service/AmountService")
 class AmountController{
 
 
-
     static addMoney = async(req,res)=>{
         const res_obj = await AmountService.addMoney(req.body,req.user)
         res.status(200).send(res_obj)
