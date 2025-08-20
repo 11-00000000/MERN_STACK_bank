@@ -137,9 +137,7 @@ export default function AddAmountModel({ id }) {
                     </button>
                   </Dialog.Title>
 
-                  <div className="w-full py-3 flex justify-center items-center ">
-                    <img src="/logo.svg" alt="" className="w-1/2 mx-auto" />
-                  </div>
+                  
 
                   <Formik
                     onSubmit={onSubmitHandler}

@@ -8,10 +8,10 @@ const AccountSchema = new mongoose.Schema({
   },
   accountNumber: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
   },
-  balance: {
+  amount: {
     type: Number,
     default: 0,
   },
