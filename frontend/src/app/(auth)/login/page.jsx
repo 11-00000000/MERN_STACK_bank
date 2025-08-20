@@ -51,17 +51,7 @@ const {fetchUserProfile} = useMainContext()
   return (
     <div className="min-h-[80vh] flex items-center justify-center">
       <div className="w-full xl:w-[60%] flex items-start border">
-        <div className="hidden lg:block bg-white">
-          <img
-<<<<<<< HEAD
-          src="https://bfsi.eletsonline.com/wp-content/uploads/2023/07/Yono-SBI.jpg"
-=======
-            //src="https://bfsi.eletsonline.com/wp-content/uploads/2023/07/Yono-SBI.jpg"
->>>>>>> efbe3709036ae8ad66caca99bc83c386680ff90a
-            className="h-full w-full object-cover"
-            alt=""
-          />
-        </div>
+        
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
