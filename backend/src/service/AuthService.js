@@ -2,7 +2,7 @@ const { UserModel } = require("../models/User.model")
 const ApiError = require("../utils/ApiError")
 const bcryptjs = require("bcryptjs")
 const JWTService = require("../utils/JwtService")
-const { AccountModel } = require("../models/Account.model")
+//const { AccountModel } = require("../models/Account.model")
 const { TransactionModel } = require("../models/Transactions.model")
 const { FixDepositModel } = require("../models/FD.model")
 

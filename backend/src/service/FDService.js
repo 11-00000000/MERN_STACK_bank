@@ -1,4 +1,4 @@
-const { AccountModel } = require("../models/Account.model")
+//const { AccountModel } = require("../models/Account.model")
 const { FixDepositModel } = require("../models/FD.model")
 const { TransactionModel } = require("../models/Transactions.model")
 const { Account_LIMIT } = require("./../utils/constant")
