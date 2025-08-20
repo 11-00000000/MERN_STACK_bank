@@ -1,8 +1,6 @@
 const { AccountModel } = require("../models/Account.model")
-const { FixDepositModel } = require("../models/FixDeposit.model")
+const { FixDepositModel } = require("../models/FD.model")
 const { TransactionModel } = require("../models/Transactions.model")
-// import { FixDepositModel } from '../models/FixDeposit.model';
-// import { TransactionModel } from '../models/Transactions.model';
 const { Account_LIMIT } = require("./../utils/constant")
  
 const ApiError = require("../utils/ApiError")

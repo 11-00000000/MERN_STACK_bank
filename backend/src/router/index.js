@@ -4,6 +4,7 @@ const AuthRoute = require("./auth")
 const AmountRoute = require("./amount")
 const FDRoute = require("./fd")
 const ATMCards = require("./atm-card")
+const AccountRoute = require("./account")
 const routes = [{
     path: '/auth',
     route: AuthRoute
@@ -22,6 +23,10 @@ const routes = [{
 {
     path: '/atm-card',
     route: ATMCards
+},
+{
+    path: '/account',
+    route: AccountRoute
 }
 ]
 

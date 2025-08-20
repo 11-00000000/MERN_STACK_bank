@@ -6,6 +6,8 @@ import FDCard from './+___compoents/FDCard';
 import { axiosClient } from '@/utils/AxiosClient';
 import CustomLoader from '@/components/reuseable/CustomLoader';
 import { toast } from 'react-toastify';
+//import FixDepositService from "./FDService.js";
+//import { AccountModel, FixDepositModel, TransactionModel } from '@/models'; // Assuming these are your Mongoose models
 
 
 const FDPage = () => {
