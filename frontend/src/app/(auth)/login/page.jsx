@@ -11,8 +11,8 @@ import { useMainContext } from "@/context/MainContext";
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false); // ✅ loading state
-const {fetchUserProfile} = useMainContext()
-  const router=useRouter()
+  const { fetchUserProfile } = useMainContext()
+  const router = useRouter()
 
   const initialValues = {
     email: "",
@@ -47,11 +47,19 @@ const {fetchUserProfile} = useMainContext()
       setLoading(false); // ✅ stop loading
     }
   };
-
   return (
     <div className="min-h-[80vh] flex items-center justify-center">
       <div className="w-full xl:w-[60%] flex items-start border">
-        
+        {/* <div className="hidden lg:block bg-white">
+          <img
+
+            src="https://bfsi.eletsonline.com/wp-content/uploads/2023/07/Yono-SBI.jpg"
+
+            //src="https://bfsi.eletsonline.com/wp-content/uploads/2023/07/Yono-SBI.jpg"
+            className="h-full w-full object-cover"
+            alt=""
+          />
+        </div> */}
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}

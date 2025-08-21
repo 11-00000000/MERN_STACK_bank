@@ -1,10 +1,10 @@
 import HeaderName from '@/components/HeaderName'
 import React from 'react'
 import SelectCard from './+__(components)/SelectCard'
-//import { SelectCard } from './+__(components)/SelectCard'
+
 import AddNewCardDialog from './+__(components)/AddNewCard'
 import ViewATMCard from './+__(components)/ViewATMCard'
-import { Select } from '@headlessui/react'
+
 
 const AtmCards = () => {
   return (
@@ -21,9 +21,7 @@ const AtmCards = () => {
         <AddNewCardDialog/>
       </div>
         </div>
-
-    
-
+   
 
         </div>
     </>
