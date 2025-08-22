@@ -4,6 +4,7 @@ const ApiError = require('./utils/ApiError');
 const NotFoundError = require('./middleware/404handling');
 const morgan = require('morgan')
 const cors = require("cors")
+const userRoutes = require("./router/userRoutes");
 
 
 
@@ -13,7 +14,7 @@ app.use(express.urlencoded({ extended: false}))
 app.use(cors())
 app.use(morgan("dev"))
 app.use("/api/v1", require("./router"))
-
+app.use("/api/user", userRoutes);
 app.get('/', (req, res) => {
   res.send({msg: 'Hello World!'})
 });
