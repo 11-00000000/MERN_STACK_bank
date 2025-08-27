@@ -1,6 +1,4 @@
 "use client";
-//import { BsCoin } from "react-icons/bs";
-//import { RiCoinsLine } from "react-icons/ri";
 import { IoCardSharp } from "react-icons/io5";
 import Link from "next/link";
 import HeaderName from "@/components/HeaderName";
@@ -9,13 +7,9 @@ import { FaEye,FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import { PiHandDepositFill } from "react-icons/pi";
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
-
 const HomePage=()=>{
-
   const {user} = useMainContext()
-
-
-  const dashboard_data = [
+ const dashboard_data = [
     {
       title:"Amount",
       "Icon":<RiMoneyRupeeCircleFill className="text-6xl text-yellow-500" />,
@@ -35,14 +29,10 @@ const HomePage=()=>{
       link:'/atm-cards'
     }
   ]
-
-
   return <>
   <div className="py-10 flex flex-col gap-y-4 " >
   <HeaderName/>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-3">
-
-   
     {
       dashboard_data.map((cur,i)=>{
         return  <DashboardCard data={cur} key={i} />
@@ -53,7 +43,6 @@ const HomePage=()=>{
   </div>
   </>
 }
-
 export default HomePage
 
 const DashboardCard = ({data})=>{

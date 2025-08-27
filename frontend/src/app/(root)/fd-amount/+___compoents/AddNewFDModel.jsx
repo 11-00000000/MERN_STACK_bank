@@ -100,7 +100,7 @@ export default function AddNewFdModel({ isUpdate, setIsUpdate }) {
 
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Get Per day <b>0.1%</b> interest by Kono Bank Application
+                      Get Per day <b>0.1%</b> interest by FinCore Bank Application
                     </p>
                   </div>
 
