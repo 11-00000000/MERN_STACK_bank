@@ -17,7 +17,7 @@ export const MainContextProvider = ({children})=>{
     const [loading,setLoading] = useState(true)
     const router = useRouter()
 
-    const [atm,setAtm] = useState(null)
+    const [atmCards,setAtmCards] = useState([])
     // to fetch user profile 
     const fetchUserProfile = async()=>{
 
@@ -52,7 +52,7 @@ export const MainContextProvider = ({children})=>{
                 }
             })
             const data  = await response.data  
-            setAtm(data)
+            setAtmCards(data.atmCards)
 
 
         } catch (error) {
@@ -77,7 +77,7 @@ export const MainContextProvider = ({children})=>{
             </div>
     }
 
-    return <mainContext.Provider value={{user,fetchUserProfile,LogoutHandler,fetchATMDetails,atm}}>
+    return <mainContext.Provider value={{user,fetchUserProfile,LogoutHandler,fetchATMDetails,atmCards,setAtmCards}}>
         {children}
     </mainContext.Provider>
 }
