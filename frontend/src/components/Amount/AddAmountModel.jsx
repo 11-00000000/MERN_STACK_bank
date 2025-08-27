@@ -49,11 +49,11 @@ export default function AddAmountModel({ id }) {
         key: `rzp_test_R56F8m31sAP6ls`, // Enter the Key ID generated from the Dashboard
         amount: (values.amount * 100).toString(),
         currency: "INR",
-        name: "FinX Bank",
+        name: "FinCore Bank",
         description: "Add Money Transaction",
         callback_url: razorpayCallBackUrl(data.txn_id),
         image: "https://razorpay.com/docs/build/browser/static/razorpay-docs-light.009264f2.svg",
-        // image: { logo },
+       // image: { logo },
         order_id: data.order_id,
 
         prefill: {
@@ -136,6 +136,9 @@ export default function AddAmountModel({ id }) {
                       <IoClose />
                     </button>
                   </Dialog.Title>
+ <div className="w-full py-3 flex justify-center items-center">
+                      <img src="/image/fincoreLogo2.jpg" alt="logo" className='w-1/2 mx-auto' />
+                    </div>
 
                   
 

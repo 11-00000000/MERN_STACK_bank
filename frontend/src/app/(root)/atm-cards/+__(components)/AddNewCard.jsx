@@ -72,7 +72,7 @@ export default function AddNewCardDialog() {
       <button
         type="button"
         onClick={openModal}
-        className="rounded-md w-1/2 px-6 py-2 bg-rose-600 text-white flex items-center justify-center gap-x-2 outline-none border-none cursor-pointer"
+        className="rounded-md w-1/2 px-6 py-2 bg-blue-600 text-white flex items-center justify-center gap-x-2 outline-none border-none cursor-pointer"
       >
         <span>Add New</span> <FaPlus />
       </button>
@@ -108,14 +108,14 @@ export default function AddNewCardDialog() {
                     className="text-lg font-medium leading-6 text-gray-900 flex items-center justify-between"
                   >
                     <h3>Add New ATM</h3>
-                    <button onClick={closeModal} className='p-2 text-2xl text-rose-700 bg-rose-50 rounded-full outline-none border-none cursor-pointer'>
+                    <button onClick={closeModal} className='p-2 text-2xl text-blue-700 bg-blue-50 rounded-full outline-none border-none cursor-pointer'>
                       <IoClose />
                     </button>
                   </Dialog.Title>
 
                   <div className="mt-2">
                     <div className="w-full py-3 flex justify-center items-center">
-                      <img src="/logo.svg" alt="logo" className='w-1/2 mx-auto' />
+                      <img src="/image/fincoreLogo2.jpg" alt="logo" className='w-1/2 mx-auto' />
                     </div>
 
                     <Formik
@@ -127,7 +127,7 @@ export default function AddNewCardDialog() {
                         <form onSubmit={handleSubmit} className='py-4'>
                           <div className="mb-3">
                             <label htmlFor="account">Account No.</label>
-                            <Field name="account" id="account" as="select" className="w-full py-2 border border-rose-500 rounded outline-none px-2">
+                            <Field name="account" id="account" as="select" className="w-full py-2 border border-blue-500 rounded outline-none px-2">
                               {accounts.length > 0 ? (
                                 <>
                                   <option value="">Select</option>
@@ -144,7 +144,7 @@ export default function AddNewCardDialog() {
 
                           <div className="mb-3">
                             <label htmlFor="card_type">Card Type</label>
-                            <Field as="select" className="w-full py-2 border border-rose-500 rounded outline-none px-2" name="card_type" id="card_type">
+                            <Field as="select" className="w-full py-2 border border-blue-500 rounded outline-none px-2" name="card_type" id="card_type">
                               {Types.length > 0 ? (
                                 <>
                                   <option value="">Select</option>
@@ -159,7 +159,7 @@ export default function AddNewCardDialog() {
 
                           <div className="mb-3">
                             <label htmlFor="pin">PIN</label>
-                            <Field type="text" id="pin" name="pin" className="w-full py-2 px-3 rounded-md border outline-none border-rose-500" placeholder='PIN Number'
+                            <Field type="text" id="pin" name="pin" className="w-full py-2 px-3 rounded-md border outline-none border-blue-500" placeholder='PIN Number'
                               onInput={(e) => e.target.value = e.target.value.replace(/\D/g, "")} />
                             <ErrorMessage className='text-red-500' component={'p'} name='pin' />
                           </div>

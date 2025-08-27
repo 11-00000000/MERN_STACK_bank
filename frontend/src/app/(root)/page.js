@@ -1,5 +1,5 @@
 "use client";
-import { IoCardSharp } from "react-icons/io5";
+import { BsFillCreditCard2FrontFill } from "react-icons/bs";
 import Link from "next/link";
 import HeaderName from "@/components/HeaderName";
 import { useMainContext } from "@/context/MainContext";
@@ -39,7 +39,7 @@ const HomePage=()=>{
     },
     {
       title: "ATM Cards",
-      Icon: <IoCardSharp className="text-6xl text-black" />,
+      Icon: <BsFillCreditCard2FrontFill className="text-6xl text-purple-800" />,
       value: `${2}`,
       link: '/atm-cards'
     }
