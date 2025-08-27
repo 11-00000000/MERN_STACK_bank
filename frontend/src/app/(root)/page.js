@@ -8,26 +8,48 @@ import { useState } from "react";
 import { PiHandDepositFill } from "react-icons/pi";
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 const HomePage=()=>{
+<<<<<<< HEAD
   const {user} = useMainContext()
  const dashboard_data = [
+=======
+  const { user } = useMainContext();
+
+  if (!user) {
+    return (
+      <div className="py-10 flex flex-col gap-y-4">
+        <HeaderName />
+        <div className="text-center text-gray-600 p-6">
+          Please log in to view your dashboard.
+        </div>
+      </div>
+    );
+  }
+
+  const dashboard_data = [
+>>>>>>> cae322d380ffc5d45added984836410228f6245f
     {
-      title:"Amount",
-      "Icon":<RiMoneyRupeeCircleFill className="text-6xl text-yellow-500" />,
-"value":`₹${Array.isArray(user.account_no) ? user.account_no.map((cur)=>cur.amount).reduce((pre,cur)=>pre+cur, 0) : 0}`,
-      link:'/amount'
+      title: "Amount",
+      Icon: <RiMoneyRupeeCircleFill className="text-6xl text-yellow-500" />,
+      value: `₹${
+        Array.isArray(user.account_no)
+          ? user.account_no.map(cur => cur.amount).reduce((pre, cur) => pre + cur, 0)
+          : user.amount ?? 0
+      }`,
+      link: '/amount'
     },
     {
-      title:"FD Amount",
-      "Icon":<PiHandDepositFill className="text-6xl text-rose-700" />,
-      "value":`₹${user.fd_amount}`,
-      link:"/fd-amount"
+      title: "FD Amount",
+      Icon: <PiHandDepositFill className="text-6xl text-rose-700" />,
+      value: `₹${user.fd_amount}`,
+      link: "/fd-amount"
     },
     {
-      title:"ATM Cards",
-      "Icon":<IoCardSharp className="text-6xl text-black" />,
-      "value":`${2}`,
-      link:'/atm-cards'
+      title: "ATM Cards",
+      Icon: <IoCardSharp className="text-6xl text-black" />,
+      value: `${2}`,
+      link: '/atm-cards'
     }
+<<<<<<< HEAD
   ]
   return <>
   <div className="py-10 flex flex-col gap-y-4 " >
@@ -42,6 +64,22 @@ const HomePage=()=>{
     
   </div>
   </>
+=======
+  ];
+
+  return (
+    <>
+      <div className="py-10 flex flex-col gap-y-4">
+        <HeaderName />
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-3">
+          {dashboard_data.map((cur, i) => (
+            <DashboardCard data={cur} key={i} />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+>>>>>>> cae322d380ffc5d45added984836410228f6245f
 }
 export default HomePage
 
