@@ -42,7 +42,8 @@ class ATMCardService{
 
 
         return {
-           msg:"Card Generated :)"
+           msg:"Card Generated :)",
+           card: newCard
         }
     }
 
