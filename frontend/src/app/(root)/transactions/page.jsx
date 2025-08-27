@@ -37,7 +37,6 @@ const Transactions = () => {
     <>
       <div className="container py-10">
         <HeaderName />
-
         <div className="relative overflow-x-auto py-10">
           <div className="px-3">
             <MessageShow />
@@ -84,6 +83,6 @@ const Transactions = () => {
       </div>
     </>
   );
-};
+}
 
 export default Transactions;

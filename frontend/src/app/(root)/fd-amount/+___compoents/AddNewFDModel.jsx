@@ -16,7 +16,7 @@ export default function AddNewFdModel({ isUpdate, setIsUpdate }) {
   const [loading, setLoading] = useState(false);
 
   const initialStates = {
-    amount: 0,
+    amount: '',
     account: '',
     apply_for: ''
   };
@@ -54,6 +54,12 @@ export default function AddNewFdModel({ isUpdate, setIsUpdate }) {
   function openModal() {
     setIsOpen(true);
   }
+
+  const accounts = Array.isArray(user.account_no)
+    ? user.account_no
+    : user.account_no
+      ? [{ _id: user.account_no, amount: user.amount ?? 0 }]
+      : [];
 
   return (
     <>
@@ -114,27 +120,22 @@ export default function AddNewFdModel({ isUpdate, setIsUpdate }) {
 
                       <div className="mb-3">
                         <label htmlFor="amount">Amount</label>
-                        <Field type="number" name='amount' id='amount' className='w-full bg-transparent border border-blue-500 rounded-md py-3 px-4 outline-none' placeholder='Enter FD Amount' />
+                        <Field type="number" name='amount' id='amount' className='w-full bg-transparent border border-rose-500 rounded-md py-3 px-4 outline-none' placeholder='Enter FD Amount' />
                         <ErrorMessage className='text-red-500' component={'p'} name='amount' />
                       </div>
-
                       <div className="mb-3">
                         <label htmlFor="account">Account</label>
-                        <Field as="select" name='account' id='account' className='w-full bg-transparent border border-blue-500 rounded-md py-3 px-4 outline-none'>
-                          {
-                            Array.isArray(user?.account_no) && user.account_no.length > 0 ? (
-                              <>
-                                <option value="">Select</option>
-                                {user.account_no.map((cur, i) => (
-                                  <option key={i} value={cur._id}>
-                                    {`${cur._id} - ₹${cur.amount}`}
-                                  </option>
-                                ))}
-                              </>
-                            ) : (
-                              <option value="">No Account Available</option>
-                            )
-                          }
+                        <Field as="select" name='account' id='account' className='w-full bg-transparent border border-rose-500 rounded-md py-3 px-4 outline-none'>
+                          {accounts.length > 0 ? (
+                            <>
+                              <option value="">Select</option>
+                              {accounts.map((cur, i) => (
+                                <option key={i} value={cur._id}>{`${cur._id}${cur.amount !== undefined ? ` - ₹${cur.amount}` : ''}`}</option>
+                              ))}
+                            </>
+                          ) : (
+                            <option value="">No Account Have</option>
+                          )}
                         </Field>
                         <ErrorMessage className='text-red-500' component={'p'} name='account' />
                       </div>

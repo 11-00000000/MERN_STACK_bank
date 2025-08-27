@@ -37,18 +37,19 @@ const {fetchUserProfile} = useMainContext()
       setLoading(true); // ✅ start loading
       const response = await axiosClient.post("/auth/register", values);
       const data = await response.data;
-
-      // console.log(data);
-      
+      console.log("Register response:", data);
       toast.success(data.msg);
       //token
-      localStorage.setItem("token", data.token)
- fetchUserProfile()
-    router.push("/")
-
+      localStorage.setItem("token", data.token);
+      console.log("Token after register:", localStorage.getItem("token"));
+      fetchUserProfile().then(() => {
+        console.log("User profile fetched after register");
+        router.push("/");
+      });
       helpers.resetForm();
     } catch (error) {
-      toast.error(error.response.data.msg || error.message);
+      toast.error(error.response?.data?.msg || error.message);
+      console.error("Register error:", error);
     } finally {
       setLoading(false); // ✅ stop loading
     }
