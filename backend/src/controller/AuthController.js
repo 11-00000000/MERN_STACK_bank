@@ -20,6 +20,9 @@ class AuthController {
     static async profileUser(req,res){
         const res_obj = await AuthService.profileUser(req.user);
         res.status(200).send(res_obj)
+        const atmCards = await ATMmodel.find({ user });
+        profile_obj['atmCards'] = atmCards;
+        return { ...userd.toObject(), ...profile_obj };
     }
 }
 module.exports = AuthController
