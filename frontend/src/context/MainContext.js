@@ -2,6 +2,7 @@
 import Loader from "@/components/Loader";
 import { axiosClient } from "@/utils/AxiosClient";
 import { toast } from "react-toastify";
+//import { useRouter } from "next/navigation";
 
 // const { createContext, useContext, useState, useEffect } = require("react");
 import {createContext, useContext, useState, useEffect} from 'react'
@@ -15,6 +16,7 @@ export const MainContextProvider = ({children})=>{
 
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(true)
+    const [messages, setMessages] = useState([]);
     const router = useRouter()
 
     const [atmCards,setAtmCards] = useState([])
@@ -66,6 +68,30 @@ export const MainContextProvider = ({children})=>{
         toast.success("Logout Success")
     }
 
+     // chatbot
+  const sendMessage = async (text) => {
+    if (!text.trim()) return;
+
+    setMessages((prev) => [...prev, { role: "user", text }]);
+
+    try {
+      const res = await axiosClient.post(
+        "/chatbot/ask",
+        { query: text },
+        { headers: { Authorization: "Bearer " + localStorage.getItem("token") } }
+      );
+
+      setMessages((prev) => [
+        ...prev,
+        { role: "bot", text: res.data.reply },
+      ]);
+    } catch (err) {
+      setMessages((prev) => [
+        ...prev,
+        { role: "bot", text: "⚠️ Something went wrong" },
+      ]);
+    }
+  };
 
     useEffect(()=>{
         fetchUserProfile()
