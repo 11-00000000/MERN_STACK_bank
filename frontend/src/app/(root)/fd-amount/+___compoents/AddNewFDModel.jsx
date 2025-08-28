@@ -120,12 +120,12 @@ export default function AddNewFdModel({ isUpdate, setIsUpdate }) {
 
                       <div className="mb-3">
                         <label htmlFor="amount">Amount</label>
-                        <Field type="number" name='amount' id='amount' className='w-full bg-transparent border border-rose-500 rounded-md py-3 px-4 outline-none' placeholder='Enter FD Amount' />
+                        <Field type="number" name='amount' id='amount' className='w-full bg-transparent border border-blue-500 rounded-md py-3 px-4 outline-none' placeholder='Enter FD Amount' />
                         <ErrorMessage className='text-red-500' component={'p'} name='amount' />
                       </div>
                       <div className="mb-3">
                         <label htmlFor="account">Account</label>
-                        <Field as="select" name='account' id='account' className='w-full bg-transparent border border-rose-500 rounded-md py-3 px-4 outline-none'>
+                        <Field as="select" name='account' id='account' className='w-full bg-transparent border border-blue-500 rounded-md py-3 px-4 outline-none'>
                           {accounts.length > 0 ? (
                             <>
                               <option value="">Select</option>
