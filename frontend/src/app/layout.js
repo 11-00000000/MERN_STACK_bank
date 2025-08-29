@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
-import MainLayout from "@/layout/MainLayout.jsx";
+import MainLayout from "@/layout/MainLayout";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,11 @@ export default function RootLayout({ children }) {
         <MainLayout>
           {children}
         </MainLayout>
+             {/* ✅ Botpress scripts */}
+        <Script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" />
+        <Script
+          src="https://files.bpcontent.cloud/2025/08/28/06/20250828062448-9KMG6PYU.js"
+          strategy="lazyOnload"/>
       </body>
     </html>
   );

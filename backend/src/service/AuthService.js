@@ -1,3 +1,4 @@
+const { ATMmodel } = require("../models/ATMCard.model");
 const { UserModel } = require("../models/User.model")
 const ApiError = require("../utils/ApiError")
 const bcryptjs = require("bcryptjs")

@@ -1,15 +1,10 @@
-"use client";
 import HeaderName from '@/components/HeaderName'
 import React from 'react'
 import SelectCard from './+__(components)/SelectCard'
 import AddNewCardDialog from './+__(components)/AddNewCard'
 import ViewATMCard from './+__(components)/ViewATMCard'
-import { useMainContext } from '@/context/MainContext';
 
 const AtmCards = () => {
-  const { user } = useMainContext();
-  console.log("user.atms:", user?.atms);
-  
   return (
     <>
         <div className="container py-10">
