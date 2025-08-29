@@ -117,9 +117,9 @@ export default function AddNewCardDialog() {
 
                   </Dialog.Title>
                   <div className="mt-2">
-                  <div className="w-full py-3 flex justify-center items-center ">
+                  {/* <div className="w-full py-3 flex justify-center items-center ">
                                 <img src="/logo.svg" alt="" className='w-1/2 mx-auto' />
-                            </div> 
+                            </div>  */}
 
 
                           <Formik  initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmitHandler}>
