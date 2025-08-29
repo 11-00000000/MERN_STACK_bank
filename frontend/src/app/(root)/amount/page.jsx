@@ -1,17 +1,12 @@
 "use client";
 import HeaderName from "@/components/HeaderName";
 import React, { Suspense, useState } from "react";
-
 import AddAmountModel from "@/components/Amount/AddAmountModel";
 import { useMainContext } from "@/context/MainContext";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-// import AddAccountModal from './+__(components)/AddAccountModal';
-// import CustomLoader from '@/components/reuseable/CustomLoader';
-
 const AmountPage = () => {
   const [isShow, setIsShow] = useState(false);
   const { user } = useMainContext();
-
   if (!user) {
     return (
       <div className="container py-10">
@@ -22,7 +17,6 @@ const AmountPage = () => {
       </div>
     );
   }
-
   return (
     <div className="container py-10">
       <HeaderName />
@@ -43,5 +37,4 @@ const AmountPage = () => {
     </div>
   );
 };
-
 export default AmountPage;
